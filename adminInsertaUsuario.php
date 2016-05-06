@@ -7,7 +7,11 @@
     $email = $_POST['email'];
     $DNI = $_POST['DNI'];
     $tipo = $_POST['tipo'];
-            
+      
+    //encriptamos la contraseña
+    //$pass = crypt($pass, "cantera");
+    $pass = password_hash ($pass, PASSWORD_DEFAULT);
+    
     $inserta_usuario = $mysqli -> 
             query("INSERT INTO `veterinario`.`usuario` (`nombreUsuario`, `pass`, `email`, `tipo`, `DNI`) VALUES ('$nombreUsuario', '$pass', '$email', '$tipo', '$DNI'); ");
 

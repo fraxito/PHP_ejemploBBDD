@@ -11,9 +11,11 @@
 
     $nombreUsuario = $_POST['nombreUsuario'];
     $pass = $_POST['pass'];
+
     $email = $_POST['nombreUsuario'];
             
-    $consulta = $mysqli -> query("SELECT * FROM usuario where (nombreUsuario = '$nombreUsuario' or  email= '$email') and pass= '$pass';");
+    $consulta = $mysqli -> query("SELECT * FROM usuario "
+            . "where (nombreUsuario = '$nombreUsuario' or  email= '$email') ;");
 
     $num_filas = $consulta -> num_rows;
     
@@ -21,11 +23,17 @@
         session_start();
         $_SESSION['usuario'] = $nombreUsuario;
         $resultado = $consulta ->fetch_array();
-        $tipo = $resultado['tipo'];
-        echo $tipo;
-        switch ($tipo) {
-            case 0 : require 'menuUsuario.php'; break;
-            case 1 : require 'menuAdmin.php'; break;
+        $passGuardada = $resultado['pass'];
+        if (password_verify($pass, $passGuardada)){
+            echo $pass;
+            $tipo = $resultado['tipo'];
+            switch ($tipo) {
+                case 0 : require 'menuUsuario.php'; break;
+                case 1 : require 'menuAdmin.php'; break;
+            }
+        }else 
+        {
+            echo '<h1> password incorrecta  </h1>';
         }
         
     }
