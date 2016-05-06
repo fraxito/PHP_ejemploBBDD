@@ -24,6 +24,7 @@
         $_SESSION['usuario'] = $nombreUsuario;
         $resultado = $consulta ->fetch_array();
         $passGuardada = $resultado['pass'];
+        //compruebo que la contraseña es la que tengo guardada en la BBDD
         if (password_verify($pass, $passGuardada)){
             echo $pass;
             $tipo = $resultado['tipo'];

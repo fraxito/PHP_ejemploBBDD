@@ -1,15 +1,20 @@
+<link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="css/jquery-ui.structure.min.css" type="text/css">
+<link rel="stylesheet" href="css/jquery-ui.theme.min.css" type="text/css">
 <br>
 <div class="row">
-    <style>
-        my-error-class {
-border: 1px solid #E40D0D;
-}   
 
-    </style>
     <div class="col-xs-3"></div>
     <div class="col-xs-6">
         <br>
         <form  id="nuevoUsuario" >
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+            <br>
+            <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" required>
+            <br>
+            <input type="text" class="form-control" id="fecha" placeholder="fecha" >
+            <br>
+            
             <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre Usuario" required>
             <br>
             <input type="password" class="form-control" id="pass" placeholder="Contraseña" required>
@@ -41,7 +46,10 @@ border: 1px solid #E40D0D;
     <div class="col-xs-3"></div>
 </div>
 <script src="js/jquery.validate.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
 <script>
+    
+    $('#fecha').datepicker();
     
     $('#nuevoUsuario').validate({
         //submitHandler:
