@@ -12,7 +12,6 @@
     //$pass = crypt($pass, "cantera");
     $pass = password_hash ($pass, PASSWORD_DEFAULT);
     
-    //hola k ase
     
     $inserta_usuario = $mysqli -> 
             query("INSERT INTO `veterinario`.`usuario` (`nombreUsuario`, `pass`, `email`, `tipo`, `DNI`) VALUES ('$nombreUsuario', '$pass', '$email', '$tipo', '$DNI'); ");

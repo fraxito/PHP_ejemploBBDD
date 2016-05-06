@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $nombre_user = $_SESSION['usuario'];
 
 //si el usuario no ha iniciado sesión, lo mandamos al index.php

@@ -29,7 +29,7 @@
             $tipo = $resultado['tipo'];
             switch ($tipo) {
                 case 0 : require 'menuUsuario.php'; break;
-                case 1 : require 'menuAdmin.php'; break;
+                case 2 : require 'menuAdmin.php'; break;
             }
         }else 
         {
